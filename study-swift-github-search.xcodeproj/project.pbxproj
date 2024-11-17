@@ -10,14 +10,43 @@
 		CB560CE32CE95684005E6284 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CB560CE22CE95684005E6284 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CBDF94C62CE9DA65009227F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB560CC72CE8F5C1005E6284 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB560CCE2CE8F5C1005E6284;
+			remoteInfo = "study-swift-github-search";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CB560CCF2CE8F5C1005E6284 /* study-swift-github-search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "study-swift-github-search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDF94C22CE9DA65009227F8 /* study-swift-github-searchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "study-swift-github-searchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CBDF94DA2CE9DBBA009227F8 /* Exceptions for "study-swift-github-searchTests" folder in "study-swift-github-searchTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				study_swift_github_searchTests.swift,
+			);
+			target = CBDF94C12CE9DA65009227F8 /* study-swift-github-searchTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CB560CD12CE8F5C1005E6284 /* study-swift-github-search */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "study-swift-github-search";
+			sourceTree = "<group>";
+		};
+		CBDF949A2CE9D102009227F8 /* study-swift-github-searchTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CBDF94DA2CE9DBBA009227F8 /* Exceptions for "study-swift-github-searchTests" folder in "study-swift-github-searchTests" target */,
+			);
+			path = "study-swift-github-searchTests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBDF94BF2CE9DA65009227F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CB560CD12CE8F5C1005E6284 /* study-swift-github-search */,
+				CBDF949A2CE9D102009227F8 /* study-swift-github-searchTests */,
 				CB560CD02CE8F5C1005E6284 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				CB560CCF2CE8F5C1005E6284 /* study-swift-github-search.app */,
+				CBDF94C22CE9DA65009227F8 /* study-swift-github-searchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +114,26 @@
 			productReference = CB560CCF2CE8F5C1005E6284 /* study-swift-github-search.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CBDF94C12CE9DA65009227F8 /* study-swift-github-searchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDF94C82CE9DA65009227F8 /* Build configuration list for PBXNativeTarget "study-swift-github-searchTests" */;
+			buildPhases = (
+				CBDF94BE2CE9DA65009227F8 /* Sources */,
+				CBDF94BF2CE9DA65009227F8 /* Frameworks */,
+				CBDF94C02CE9DA65009227F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBDF94C72CE9DA65009227F8 /* PBXTargetDependency */,
+			);
+			name = "study-swift-github-searchTests";
+			packageProductDependencies = (
+			);
+			productName = "study-swift-github-searchTests";
+			productReference = CBDF94C22CE9DA65009227F8 /* study-swift-github-searchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +146,10 @@
 				TargetAttributes = {
 					CB560CCE2CE8F5C1005E6284 = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					CBDF94C12CE9DA65009227F8 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = CB560CCE2CE8F5C1005E6284;
 					};
 				};
 			};
@@ -109,12 +171,20 @@
 			projectRoot = "";
 			targets = (
 				CB560CCE2CE8F5C1005E6284 /* study-swift-github-search */,
+				CBDF94C12CE9DA65009227F8 /* study-swift-github-searchTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CB560CCD2CE8F5C1005E6284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDF94C02CE9DA65009227F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +201,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBDF94BE2CE9DA65009227F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBDF94C72CE9DA65009227F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB560CCE2CE8F5C1005E6284 /* study-swift-github-search */;
+			targetProxy = CBDF94C62CE9DA65009227F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CB560CDC2CE8F5C2005E6284 /* Debug */ = {
@@ -326,6 +411,47 @@
 			};
 			name = Release;
 		};
+		CBDF94C92CE9DA65009227F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JWC5AN6A78;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.katsumi.study-swift-github-searchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/study-swift-github-search.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/study-swift-github-search";
+			};
+			name = Debug;
+		};
+		CBDF94CA2CE9DA65009227F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JWC5AN6A78;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.katsumi.study-swift-github-searchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/study-swift-github-search.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/study-swift-github-search";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -343,6 +469,15 @@
 			buildConfigurations = (
 				CB560CDF2CE8F5C2005E6284 /* Debug */,
 				CB560CE02CE8F5C2005E6284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBDF94C82CE9DA65009227F8 /* Build configuration list for PBXNativeTarget "study-swift-github-searchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDF94C92CE9DA65009227F8 /* Debug */,
+				CBDF94CA2CE9DA65009227F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
