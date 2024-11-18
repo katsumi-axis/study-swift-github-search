@@ -18,7 +18,7 @@ struct CounterFeature {
         var isTimerRunning = false
     }
 
-    enum Action {
+    enum Action: Equatable {
         case decrementButtonTapped
         case incrementButtonTapped
         case factButtonTapped
@@ -27,16 +27,17 @@ struct CounterFeature {
         case toggleTimerButtonTapped
     }
     enum CancelID { case timer }
-
+    
     @Dependency(\.continuousClock) var clock
-
-    var body: some ReducerOf<Self> {
+    @Dependency(\.githubClient) var githubClient
+    
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .decrementButtonTapped:
                 state.count -= 1
                 return .none
-
+                
             case .incrementButtonTapped:
                 state.count += 1
                 return .none
@@ -44,38 +45,32 @@ struct CounterFeature {
                 state.fact = nil
                 state.isLoading = true
                 return .run { [count = state.count] send in
-                    let (data, _) = try await URLSession.shared
-                        .data(
-                            from: URL(
-                                string: "https://api.github.com/users/\(count)")!
-                        )
-                    let fact = String(decoding: data, as: UTF8.self)
-                    await send(.factResponse(fact))
+                    try await send(.factResponse(self.githubClient.fetch(count)))
                 }
-
+                
             case let .factResponse(fact):
                 state.fact = fact
                 state.isLoading = false
                 return .none
-
+                
             case .timerTick:
                 state.count += 1
                 state.fact = nil
                 return .none
             case .toggleTimerButtonTapped:
-                state.isTimerRunning.toggle()
-                if state.isTimerRunning {
-                    return .run { send in
-                        for await _ in self.clock.timer(interval: .seconds(1)) {
+                    state.isTimerRunning.toggle()
+                    if state.isTimerRunning {
+                      return .run { send in
+                          for await _ in self.clock.timer(interval: .seconds(1)) {
                             await send(.timerTick)
-                        }
+                          }
+                      }
+                      .cancellable(id: CancelID.timer)
+                    } else {
+                      return .cancel(id: CancelID.timer)
                     }
-                    .cancellable(id: CancelID.timer)
-                } else {
-                    return .cancel(id: CancelID.timer)
-                }
             }
-
+            
         }
     }
 }
@@ -98,7 +93,7 @@ struct ContentView: View {
                 .padding()
                 .background(Color.black.opacity(0.1))
                 .cornerRadius(10)
-
+                
                 Button("+") {
                     store.send(.incrementButtonTapped)
                 }
@@ -107,12 +102,12 @@ struct ContentView: View {
                 .background(Color.black.opacity(0.1))
                 .cornerRadius(10)
                 Button(store.isTimerRunning ? "Stop timer" : "Start timer") {
-                    store.send(.toggleTimerButtonTapped)
-                }
-                .font(.largeTitle)
-                .padding()
-                .background(Color.black.opacity(0.1))
-                .cornerRadius(10)
+                        store.send(.toggleTimerButtonTapped)
+                      }
+                      .font(.largeTitle)
+                      .padding()
+                      .background(Color.black.opacity(0.1))
+                      .cornerRadius(10)
             }
             VStack {
                 Button("Fact") {
@@ -121,14 +116,14 @@ struct ContentView: View {
                     .padding()
                     .background(Color.black.opacity(0.1))
                     .cornerRadius(10)
-
+                
                 if store.isLoading {
-                    ProgressView()
+                  ProgressView()
                 } else if let fact = store.fact {
-                    Text(fact)
+                  Text(fact)
                         .font(.callout)
-                        .multilineTextAlignment(.center)
-                        .padding()
+                    .multilineTextAlignment(.center)
+                    .padding()
                 }
 
             }

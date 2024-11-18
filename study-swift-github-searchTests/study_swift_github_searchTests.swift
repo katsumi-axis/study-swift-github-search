@@ -10,15 +10,15 @@ import Testing
 @testable import study_swift_github_search
 
 @MainActor
-struct study_swift_github_searchTests {
+struct study_swift_github_searchTests{
     @Test func basics() async throws {
 
         let clock = TestClock()
 
         let store = TestStore(initialState: CounterFeature.State()) {
             CounterFeature()
-        } withDependencies: {
-            $0.continuousClock = clock
+        } withDependencies: { dependencies in
+            dependencies.continuousClock = clock
         }
 
         await store.send(.incrementButtonTapped) {
@@ -37,5 +37,6 @@ struct study_swift_github_searchTests {
         await store.send(.toggleTimerButtonTapped) {
           $0.isTimerRunning = false
         }
+        
     }
 }
